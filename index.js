@@ -1,0 +1,108 @@
+let runningTotal = 0;
+let buffer = '0';
+let previousOperator = 0;
+
+const screenRef = document.querySelector('.screen');
+
+function btnClick(value){
+    if (isNaN(value)) {
+        handleSymbol(value);
+    } else {
+        handleNumber(value);
+    }
+    screenRef.innerText = buffer;
+}
+
+function handleSymbol(symbol){
+    switch(symbol){
+        case 'C':
+            buffer = '0';
+            runningTotal = 0;
+            break;
+        case "=":
+            if (previousOperator === null) {
+                return;
+            }
+            flushOperation(parseInt(buffer));
+            previousOperator = null;
+            buffer = runningTotal;
+            break;
+        case "←":
+            if(buffer === runningTotal){
+                console.log('ban');
+                return;
+            }
+            if (buffer.length === 1) {
+                buffer = '0';
+            } else {
+                buffer = buffer.substring(0, buffer.length - 1);
+            }
+            break;
+        case "-":
+        case "×":
+        case "+":
+        case "÷":
+            handleMath(symbol);
+            break;
+    }
+}
+
+function handleMath(symbol){
+    if (buffer === '0') {
+        return;
+    }
+    const intBuffer = parseInt(buffer);
+    if (runningTotal === 0) {
+        runningTotal = intBuffer;
+    } else {
+        flushOperation(intBuffer);
+    }
+    previousOperator = symbol;
+    buffer = '0';
+}
+
+function flushOperation(intBuffer){
+    if (previousOperator === '+') {
+        runningTotal += intBuffer;
+    }
+    if (previousOperator === '-') {
+        runningTotal -= intBuffer;
+    }
+    if (previousOperator === '×') {
+        runningTotal *= intBuffer;
+    }
+    if (previousOperator === '÷') {
+        runningTotal /= intBuffer;
+    }
+}
+
+function handleNumber(numberString){
+    if (buffer === '0') {
+        buffer = numberString;
+    } else {
+        buffer += numberString;
+    }
+}
+function init(){
+    document.querySelector('.calc-buttons').addEventListener('click', (e) =>{
+        btnClick(e.target.innerText);
+    });
+}
+init();
+
+
+
+
+
+
+
+
+const zone = document.querySelector('.wrap');
+const zero = document.querySelector('.trigger');
+zero.addEventListener("mouseover", () => {
+    zone.classList.add('rgb');
+});
+zero.addEventListener("click", () => {
+    zone.classList.remove('rgb');
+});
+

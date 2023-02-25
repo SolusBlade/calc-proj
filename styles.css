@@ -1,0 +1,137 @@
+html{
+    height: 100%;
+}
+body{
+    background: linear-gradient(320deg, #333333 10%, #7d0e0e 40%, #dd1818 80%, #333333 100%);
+    align-items: center;
+    display: flex;
+    font-family: 'Kanit', sans-serif;
+    font-display: swap;
+    height: inherit;
+    justify-content: center;
+}
+
+.wrap{
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    flex-basis: 400px;
+    /* height: 540px; */
+    padding: 20px 35px;
+}
+
+.screen{
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    font-size: 35px;
+    overflow: hidden;
+    padding: 20px;
+    text-align: right;
+    width: 326px;
+}
+
+.calc-buttons-row{
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
+}
+.calc-button{
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    flex-basis: 20%;
+    font-family: inherit;
+    font-size: 24px;
+    height: 65px;
+}
+.calc-button:last-child{
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    background: #dd1818;
+    color: #ffffff;
+}
+.calc-button:last-child:hover,
+.calc-button:last-child:focus{
+    background: inherit;
+    color: inherit;
+}
+.calc-button:hover,
+.calc-button:focus{
+    background: inherit;
+    color: #fff;
+}
+.calc-button:active{
+    background: #ed2e28;
+}
+.wrap.rgb{
+    animation: rainbow-bg 2.5s linear infinite;
+}
+.double{
+    flex-basis: 47%;
+}
+.triple{
+    flex-basis: 73%;
+}
+.trigger{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 5px;
+    height: 5px;
+}
+
+@keyframes rainbow-bg{
+    100%,0%{
+        background-color: rgb(255,0,0);
+    }
+    8%{
+        background-color: rgb(255,127,0);
+    }
+    16%{
+        background-color: rgb(255,255,0);
+    }
+    25%{
+        background-color: rgb(127,255,0);
+    }
+    33%{
+        background-color: rgb(0,255,0);
+    }
+    41%{
+        background-color: rgb(0,255,127);
+    }
+    50%{
+        background-color: rgb(0,255,255);
+    }
+    58%{
+        background-color: rgb(0,127,255);
+    }
+    66%{
+        background-color: rgb(0,0,255);
+    }
+    75%{
+        background-color: rgb(127,0,255);
+    }
+    83%{
+        background-color: rgb(255,0,255);
+    }
+    91%{
+        background-color: rgb(255,0,127);
+    }
+}
